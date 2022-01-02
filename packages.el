@@ -49,3 +49,8 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 (package! org-super-agenda)
+;; The rotate package just adds the ability to rotate window layouts
+(package! rotate :pin "4e9ac3ff800880bd9b705794ef0f7c99d72900a6")
+
+;; For when you want to change the case pattern for a symbol.
+(package! string-inflection :pin "fd7926ac17293e9124b31f706a4e8f38f6a9b855")
