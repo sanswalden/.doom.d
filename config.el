@@ -19,17 +19,17 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
-;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
+(setq doom-font (font-spec :family "Iosevka SS04" :size 24 :weight 'light)
+      doom-variable-pitch-font (font-spec :family "SF Pro Text" :size 20))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-dracula)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/code/emacs/org/")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -54,22 +54,36 @@
 ;; they are implemented.
 ;;
 ;;
-(use-package! org-super-agenda
-  :after org-agenda
-  :init
-  (setq org-super-agenda-groups '((name: "Today"
-                                         :time-grid t
-                                         :scheduled today)
-                                  (name: "Due today"
-                                         :deadline today)
-                                  (name: "Important"
-                                         :priority "A")
-                                  (name: "Overdue"
-                                         :deadline past)
-                                  (name: "Due soon"
-                                         :deadline future)
-                                  (name: "Big Outcomes"
-                                         :tag "bo")
-                                  ))
-  :config
-  (org-super-agenda-mode))
+
+(after! org
+  (map! :map org-mode-map
+        :n "M-j" #'org-metadown
+        :n "M-k" #'org-metaup))
+
+;; (use-package! org-super-agenda
+;;   :after org-agenda
+;;   :init
+;;   (setq org-super-agenda-groups '((name: "Today"
+;;                                          :time-grid t
+;;                                          :scheduled today)
+;;                                   (name: "Due today"
+;;                                          :deadline today)
+;;                                   (name: "Important"
+;;                                          :priority "A")
+;;                                   (name: "Overdue"
+;;                                          :deadline past)
+;;                                   (name: "Due soon"
+;;                                          :deadline future)
+;;                                   (name: "Big Outcomes"
+;;                                          :tag "bo")
+;;                                   ))
+;;   :config
+;; (org-super-agenda-mode))
+
+(setq deft-directory "~/code/emacs/notes"
+      deft-extensions `("txt" "org")
+      deft-recursive t)
+
+(setq org-journal-file-format "%m-%d-%Y.org"
+      org-journal-dir "~/code/emacs/org/journal")
+
