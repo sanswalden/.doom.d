@@ -9,6 +9,10 @@
 (setq user-full-name "Bill Hensler"
       user-mail-address "sanswalden@gmail.com")
 
+;; Maximize the starup window
+;; from https://rossjhagan.com/thoughts/weekend-with-doom-emacs-clojure/
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -94,8 +98,8 @@
 
 (display-time-mode 1)                             ; Enable time in the mode-line
 
-(unless (string-match-p "^Power N/A" (battery))   ; On laptops...
-  (display-battery-mode 1))                       ; it's nice to know how much power you have
+;; (unless (string-match-p "^Power N/A" (battery))   ; On laptops...
+;;   (display-battery-mode 1))                       ; it's nice to know how much power you have
 
 ;; Window rotation is nice, and can be found under SPC w r and SPC w R. Layout rotation is also nice though. Let’s stash this under SPC w SPC, inspired by Tmux’s use of C-b SPC to rotate windows.
 ;; We could also do with adding the missing arrow-key variants of the window navigation/swapping commands.
