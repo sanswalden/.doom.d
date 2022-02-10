@@ -9,6 +9,13 @@
 (setq user-full-name "Bill Hensler"
       user-mail-address "sanswalden@gmail.com")
 
+
+(cond (IS-MAC
+       (setq mac-command-modifier       'meta
+             mac-option-modifier        'alt
+             mac-right-option-modifier  'alt
+             mac-pass-control-to-system nil)))
+
 ;; Maximize the starup window
 ;; from https://rossjhagan.com/thoughts/weekend-with-doom-emacs-clojure/
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
@@ -24,7 +31,16 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (setq doom-font (font-spec :family "Iosevka SS04" :size 24 :weight 'light)
-      doom-variable-pitch-font (font-spec :family "SF Pro Text" :size 20))
+      doom-variable-pitch-font (font-spec :family "Iosevka SS04" :size 20))
+
+;; Randomly pick a Doom logo
+(let ((alternatives '("doom-emacs-color2.svg"
+                      "doom-emacs-flugo-slant_out_bw-small"
+                      "doom-emacs-flugo-slant_out_purple-small.png"
+                      "doom-emacs-flugo-slant_out_bw-small.png")))
+  (setq fancy-splash-image
+        (concat doom-private-dir "splash/"
+                (nth (random (length alternatives)) alternatives))))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -39,6 +55,11 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type  'relative)
 
+(setq doom-modeline-enable-word-count t)
+
+(custom-set-faces!
+  '(doom-dashboard-banner :inherit default)
+  '(doom-dashboard-loaded :inherit default))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -90,6 +111,15 @@
 
 (setq org-journal-file-format "%m-%d-%Y.org"
       org-journal-dir "~/code/emacs/org/journal")
+
+(when IS-MAC
+  (use-package! org-mac-link
+    :after org
+    :config
+    (setq org-mac-grab-Acrobat-app-p nil) ; Disable grabbing from Adobe Acrobat
+    (setq org-mac-grab-devonthink-app-p nil) ; Disable grabbinb from DevonThink
+    (map! :map org-mode-map
+          "C-c g"  #'org-mac-grab-link)))
 
 (setq-default
  delete-by-moving-to-trash t                      ; Delete files to trash
