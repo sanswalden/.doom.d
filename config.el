@@ -10,11 +10,11 @@
       user-mail-address "sanswalden@gmail.com")
 
 
-(cond (IS-MAC
-       (setq mac-command-modifier       'meta
-             mac-option-modifier        'alt
-             mac-right-option-modifier  'alt
-             mac-pass-control-to-system nil)))
+;; (cond (IS-MAC
+;;        (setq mac-command-modifier       'meta
+;;              mac-option-modifier        'alt
+;;              mac-right-option-modifier  'alt
+;;              mac-pass-control-to-system nil)))
 
 ;; Maximize the starup window
 ;; from https://rossjhagan.com/thoughts/weekend-with-doom-emacs-clojure/
@@ -30,6 +30,9 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
+;; (setq text-scale-mode-step 0.5)
+(setq text-scale-mode-step 1.1)
+
 (setq doom-font (font-spec :family "Iosevka SS04" :size 24 :weight 'light)
       doom-variable-pitch-font (font-spec :family "Iosevka SS04" :size 20))
 
@@ -56,6 +59,13 @@
 (setq display-line-numbers-type  'relative)
 
 (setq doom-modeline-enable-word-count t)
+
+
+;; Shrink the model line height and change the font to match the buffer
+;; (setq doom-modeline-height 1)
+(custom-set-faces
+  '(mode-line ((t (:family "Iosevka SS04" ))))
+  '(mode-line-inactive ((t (:family "Iosevka SS04" )))))
 
 (custom-set-faces!
   '(doom-dashboard-banner :inherit default)
