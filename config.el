@@ -52,7 +52,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/code/emacs/org/")
+(setq org-directory "~/Documents/emacs-org/org/")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -115,12 +115,12 @@
 ;;   :config
 ;; (org-super-agenda-mode))
 
-(setq deft-directory "~/code/emacs/notes"
+(setq deft-directory "~/Documents/emacs-org/notes/"
       deft-extensions `("txt" "org")
       deft-recursive t)
 
 (setq org-journal-file-format "%m-%d-%Y.org"
-      org-journal-dir "~/code/emacs/org/journal")
+      org-journal-dir "~/Doucments/emac-org/org/journal/")
 
 (when IS-MAC
   (use-package! org-mac-link
