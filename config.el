@@ -120,7 +120,7 @@
       deft-recursive t)
 
 (setq org-journal-file-format "%m-%d-%Y.org"
-      org-journal-dir "~/Doucments/emac-org/org/journal/")
+      org-journal-dir "~/Documents/emac-org/org/journal/")
 
 (when IS-MAC
   (use-package! org-mac-link
