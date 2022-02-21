@@ -198,3 +198,8 @@
       (string-inflection-all-cycle)
       (setq evil-repeat-info '([?g ?~])))
     (define-key evil-normal-state-map (kbd "g~") 'evil-operator-string-inflection)))
+
+(map! (:localleader
+       (:map (clojure-mode-map clojurescript-mode-map clojurec-mode-map)
+        (:prefix ("e" . "eval")
+         ";" #'cider-eval-defun-to-comment))))
