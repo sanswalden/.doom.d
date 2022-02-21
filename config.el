@@ -10,11 +10,11 @@
       user-mail-address "sanswalden@gmail.com")
 
 
-(cond (IS-MAC
-       (setq mac-command-modifier       'meta
-             mac-option-modifier        'alt
-             mac-right-option-modifier  'alt
-             mac-pass-control-to-system nil)))
+;; (cond (IS-MAC
+;;        (setq mac-command-modifier       'meta
+;;              mac-option-modifier        'alt
+;;              mac-right-option-modifier  'alt
+;;              mac-pass-control-to-system nil)))
 
 ;; Maximize the starup window
 ;; from https://rossjhagan.com/thoughts/weekend-with-doom-emacs-clojure/
@@ -30,6 +30,9 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
+;; (setq text-scale-mode-step 0.5)
+(setq text-scale-mode-step 1.1)
+
 (setq doom-font (font-spec :family "Iosevka SS04" :size 24 :weight 'light)
       doom-variable-pitch-font (font-spec :family "Iosevka SS04" :size 20))
 
@@ -49,13 +52,20 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/code/emacs/org/")
+(setq org-directory "~/Documents/emacs-org/org/")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type  'relative)
 
 (setq doom-modeline-enable-word-count t)
+
+
+;; Shrink the model line height and change the font to match the buffer
+;; (setq doom-modeline-height 1)
+(custom-set-faces
+  '(mode-line ((t (:family "Iosevka SS04" ))))
+  '(mode-line-inactive ((t (:family "Iosevka SS04" )))))
 
 (custom-set-faces!
   '(doom-dashboard-banner :inherit default)
@@ -105,12 +115,12 @@
 ;;   :config
 ;; (org-super-agenda-mode))
 
-(setq deft-directory "~/code/emacs/notes"
+(setq deft-directory "~/Documents/emacs-org/notes/"
       deft-extensions `("txt" "org")
       deft-recursive t)
 
 (setq org-journal-file-format "%m-%d-%Y.org"
-      org-journal-dir "~/code/emacs/org/journal")
+      org-journal-dir "~/Documents/emac-org/org/journal/")
 
 (when IS-MAC
   (use-package! org-mac-link
