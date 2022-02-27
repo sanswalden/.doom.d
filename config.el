@@ -209,7 +209,13 @@
       (setq evil-repeat-info '([?g ?~])))
     (define-key evil-normal-state-map (kbd "g~") 'evil-operator-string-inflection)))
 
+;; Provie some more cider features
 (map! (:localleader
        (:map (clojure-mode-map clojurescript-mode-map clojurec-mode-map)
         (:prefix ("e" . "eval")
          ";" #'cider-eval-defun-to-comment))))
+
+;; Provide a spacemacs like short cut key ',' for the major mode key. This allows ',' to
+;; be a short cut for <space> m to get to the buffers major mode. Mainly wanted to shorten
+;; stroke count for eval in clojure
+;; (setq doom-localleader-key ",")
