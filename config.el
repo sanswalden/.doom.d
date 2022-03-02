@@ -214,6 +214,8 @@
        (:map (clojure-mode-map clojurescript-mode-map clojurec-mode-map)
         (:prefix ("e" . "eval")
          ";" #'cider-eval-defun-to-comment)
+        (:prefix ("h" . "cheatsheet")
+         "s" #'cider-cheatsheet)
         ("=" #'zprint))))
 
 ;; Provide a spacemacs like short cut key ',' for the major mode key. This allows ',' to
