@@ -50,9 +50,6 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-dracula)
 
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/Documents/emacs-org/org/")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -90,6 +87,13 @@
 ;;
 ;;
 
+;; If you use `org' and don't want your org files in the default location below,
+;; change `org-directory'. It must be set before org loads!
+(setq org-directory "~/Documents/emacs-org/org/")
+
+;; allow mixed fonts in an orgbuffer
+(add-hook! 'org-mode-hook #'mixed-pitch-mode)
+(add-hook! 'org-mode-hook #'solaire-mode)
 (after! org
   (map! :map org-mode-map
         :n "M-j" #'org-metadown
@@ -173,6 +177,15 @@
 ;;
 (setq doom-fallback-buffer-name "► Doom"
       +doom-dashboard-name "► Doom")
+
+;; Change misc. things
+;;
+(setq
+ undo-limit 80000000          ; Raise undo limit to 80 mb
+ truncate-string-ellipsis "…" ; Unicode elipeses are nicer
+ scroll-margin 2              ; Nice to have some breathing room
+ )
+
 ;;
 ;; Avy! What a wonderful way to jump to buffer positions, and it uses the QWERTY home-row for jumping.
 ;; Very convenient … except I’m using Colemak.
@@ -209,7 +222,7 @@
       (setq evil-repeat-info '([?g ?~])))
     (define-key evil-normal-state-map (kbd "g~") 'evil-operator-string-inflection)))
 
-;; Provie some more cider features and zprint for prettier like formatting
+;; Provide more cider features and zprint for prettier line formatting
 (map! (:localleader
        (:map (clojure-mode-map clojurescript-mode-map clojurec-mode-map)
         (:prefix ("e" . "eval")
