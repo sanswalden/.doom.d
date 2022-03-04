@@ -54,8 +54,6 @@
 
 ;; For when you want to change the case pattern for a symbol.
 (package! string-inflection :pin "fd7926ac17293e9124b31f706a4e8f38f6a9b855")
-(package! evil-paredit)
-
 
 (when IS-MAC
   (package! org-mac-link))

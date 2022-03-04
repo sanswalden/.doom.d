@@ -238,3 +238,9 @@
 ;; For some reason, not obvious to me, this didn't work as I expected
 ;;
 
+;; with lispy [] keys are used as movement in insert mode
+;; https://github.com/noctuid/lispyville/issues/36 points out the lispy binds `}' to
+;; insert [].
+;; (use-package! lispy
+;;   (define-key lispy-mode-map-lispy "[" nil)
+;;   (define-key lispy-mode-map-lispy "]" nil))
