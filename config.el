@@ -92,7 +92,7 @@
 (setq org-directory "~/Documents/emacs-org/org/")
 
 ;; allow mixed fonts in an orgbuffer
-(add-hook! 'org-mode-hook #'mixed-pitch-mode)
+;; (add-hook! 'org-mode-hook #'mixed-pitch-mode)
 (add-hook! 'org-mode-hook #'solaire-mode)
 (after! org
   (map! :map org-mode-map
