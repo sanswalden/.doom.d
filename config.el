@@ -231,6 +231,9 @@
          "s" #'cider-cheatsheet)
         ("=" #'zprint))))
 
+;;  Allow defun evaluation in a (comment ) block
+(setq clojure-toplevel-inside-comment-form t)
+
 ;; Provide a spacemacs like short cut key ',' for the major mode key. This allows ',' to
 ;; be a short cut for <space> m to get to the buffers major mode. Mainly wanted to shorten
 ;; stroke count for eval in clojure
