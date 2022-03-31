@@ -125,6 +125,9 @@
 
 (setq org-journal-file-format "%m-%d-%Y.org"
       org-journal-dir "~/Documents/emacs-org/org/journal/")
+;;
+;; Shared personal dictionary
+(setq ispell-personal-dictionary "~/Documents/emacs-org/ispell_english")
 
 (when IS-MAC
   (use-package! org-mac-link
@@ -233,6 +236,25 @@
 
 ;;  Allow defun evaluation in a (comment ) block
 (setq clojure-toplevel-inside-comment-form t)
+
+;; flycheck support to avoid the C-c carpal tunnel
+(map!  (:leader :prefix ("C" . "Flycheck")
+        :desc "Describe checker"          "?" #'flycheck-describe-checker
+        :desc "Clear"                     "C" #'flycheck-clear
+        :desc "Show error"                "h" #'flycheck-display-error-at-point
+        :desc "Version"                   "V" #'flycheck-version
+        :desc "Check buffer"              "c" #'flycheck-buffer
+        :desc "Explain error"             "e" #'flycheck-explain-error-at-point
+        :desc "Manual"                    "i" #'flycheck-manual
+        :desc "List errors"               "l" #'flycheck-list-errors
+        :desc "Next error"                "[" #'flycheck-next-error
+        :desc "Previous error"            "]" #'flycheck-previous-error
+        :desc "Select checker"            "s" #'flycheck-select-checker
+        :desc "Verify setup"              "v" #'flycheck-verify-setup
+        :desc "Disable checker"           "x" #'flycheck-disable-checker
+        :desc "Compile"                   "b" #'flycheck-compile
+        :desc "Copy error"                "w" #'flycheck-copy-errors-as-kill))
+
 
 ;; Provide a spacemacs like short cut key ',' for the major mode key. This allows ',' to
 ;; be a short cut for <space> m to get to the buffers major mode. Mainly wanted to shorten
