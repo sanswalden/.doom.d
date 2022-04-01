@@ -92,8 +92,6 @@
 (setq org-directory "~/Documents/emacs-org/org/")
 ;; same for org-roam
 (setq org-roam-directory "~/Documents/emacs-org/org-roam/")
-(add-hook 'after-init-hook 'org-roam-mode)
-(remove-hook 'find-file-hook #'+org-roam-open-buffer-maybe-h)
 
 
 ;; allow mixed fonts in an orgbuffer

@@ -153,7 +153,7 @@
        ;;nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
        (org               ; organize your plain life in plain text
-        +roam
+        +roam2
         +pretty
         +journal
         +dragndrop         ; Exporting to whatever you want

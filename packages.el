@@ -60,4 +60,4 @@
 (package! zprint-mode)
 
 ;; When using org-roam va the '+roam' flag
-(unpin! org-roam company-org-roam)
+;; (unpin! org-roam company-org-roam)
