@@ -34,7 +34,8 @@
 (setq text-scale-mode-step 1.1)
 
 (setq doom-font (font-spec :family "Iosevka SS04" :size 24 :weight 'light)
-      doom-variable-pitch-font (font-spec :family "Iosevka SS04" :size 20))
+      doom-variable-pitch-font (font-spec :family "Iosevka SS04" :size 20)
+      doom-big-font (font-spec :size 28))
 
 ;; Randomly pick a Doom logo
 (let ((alternatives '("doom-emacs-color2.svg"
@@ -57,6 +58,15 @@
 
 (setq doom-modeline-enable-word-count t)
 
+;; (set-frame-parameter (selected-frame) 'alpha '(97 95)) ;sets tranparency
+;; (add-to-list 'default-frame-alist '(alpha 97 95))
+
+(setq evil-want-fine-undo t                       ; By default while in insert all changes are one big blob. Be more granular
+      auto-save-default t                         ; Nobody likes to loose work, I certainly don't
+      inhibit-compacting-font-caches t            ; When there are lots of glyphs, keep them in memory
+      truncate-string-ellipsis "…")              ; Unicode ellispis are nicer than "...", and also save /precious/ space
+
+
 
 ;; Shrink the model line height and change the font to match the buffer
 ;; (setq doom-modeline-height 1)
@@ -67,6 +77,8 @@
 (custom-set-faces!
   '(doom-dashboard-banner :inherit default)
   '(doom-dashboard-loaded :inherit default))
+
+
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -166,11 +178,13 @@
 
 ;; Change misc. things
 ;;
-(setq
- undo-limit 80000000          ; Raise undo limit to 80 mb
- truncate-string-ellipsis "…" ; Unicode elipeses are nicer
- scroll-margin 2              ; Nice to have some breathing room
- )
+(setq evil-want-fine-undo t                       ; By default while in insert all changes are one big blob. Be more granular
+      auto-save-default t                         ; Nobody likes to loose work, I certainly don't
+      inhibit-compacting-font-caches t            ; When there are lots of glyphs, keep them in memory
+      undo-limit 80000000          ; Raise undo limit to 80 mb
+      truncate-string-ellipsis "…" ; Unicode elipeses are nicer
+      scroll-margin 2              ; Nice to have some breathing room
+      )
 
 ;;
 ;; Avy! What a wonderful way to jump to buffer positions, and it uses the QWERTY home-row for jumping.
