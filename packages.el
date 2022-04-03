@@ -61,3 +61,5 @@
 
 ;; When using org-roam va the '+roam' flag
 ;; (unpin! org-roam company-org-roam)
+
+(package! fountain-mode)

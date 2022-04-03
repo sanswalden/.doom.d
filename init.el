@@ -50,7 +50,7 @@
        (window-select
         +switch-window)     ; visually switch windows
        workspaces        ; tab emulation, persistence & separate workspaces
-       ;;zen               ; distraction-free coding or writing
+       zen               ; distraction-free coding or writing
 
        :editor
        (evil +everywhere); come to the dark side, we have cookies
@@ -157,7 +157,9 @@
         +roam2
         +pretty
         +journal
-        +dragndrop         ; Exporting to whatever you want
+        +dragndrop
+        +pomodoro
+        +pandoc          ; Exporting to whatever you want
         +present)          ; Emacs for presentations
         ;; +publish        ;    Emacs + Oorg as static site generator
        ;;php               ; perl's insecure younger brother

@@ -184,6 +184,7 @@
       undo-limit 80000000          ; Raise undo limit to 80 mb
       truncate-string-ellipsis "…" ; Unicode elipeses are nicer
       scroll-margin 2              ; Nice to have some breathing room
+      +zen-text-scale 1.0
       )
 
 ;;
