@@ -176,16 +176,14 @@
 (setq doom-fallback-buffer-name "► Doom"
       +doom-dashboard-name "► Doom")
 
-;; Change misc. things
-;;
+
 (setq evil-want-fine-undo t                       ; By default while in insert all changes are one big blob. Be more granular
       auto-save-default t                         ; Nobody likes to loose work, I certainly don't
       inhibit-compacting-font-caches t            ; When there are lots of glyphs, keep them in memory
       undo-limit 80000000          ; Raise undo limit to 80 mb
       truncate-string-ellipsis "…" ; Unicode elipeses are nicer
       scroll-margin 2              ; Nice to have some breathing room
-      +zen-text-scale 1.0
-      )
+      +zen-text-scale 0.3)
 
 ;;
 ;; Avy! What a wonderful way to jump to buffer positions, and it uses the QWERTY home-row for jumping.
@@ -267,3 +265,21 @@
 ;; (use-package! lispy
 ;;   (define-key lispy-mode-map-lispy "[" nil)
 ;;   (define-key lispy-mode-map-lispy "]" nil))
+
+;; color improvements for docs  display
+(use-package! info-colors
+  :commands (info-colors-fontify-node))
+
+(add-hook 'Info-selection-hook 'info-colors-fontify-node)
+
+;; In some files, ^L appears as a page break character. This isn’t that visually appealing,
+;; and Steve Purcell has been nice enough to make a package to display these as horizontal rules.
+(use-package! page-break-lines
+  :commands page-break-lines-mode
+  :init
+  (autoload 'turn-on-page-break-lines-mode "page-break-lines")
+  :config
+  (setq page-break-lines-max-width fill-column)
+  (map! :prefix "g"
+        :desc "Prev page break" :nv "[" #'backward-page
+        :desc "Next page break" :nv "]" #'forward-page))
