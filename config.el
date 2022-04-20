@@ -9,7 +9,6 @@
 (setq user-full-name "Bill Hensler"
       user-mail-address "sanswalden@gmail.com")
 
-
 ;; (cond (IS-MAC
 ;;        (setq mac-command-modifier       'meta
 ;;              mac-option-modifier        'alt
@@ -283,3 +282,5 @@
   (map! :prefix "g"
         :desc "Prev page break" :nv "[" #'backward-page
         :desc "Next page break" :nv "]" #'forward-page))
+
+(setq projectile-project-search-path '("~/Documents/emacs-org/" ("~/code" . 1)))
