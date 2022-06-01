@@ -69,3 +69,7 @@
 
 ;; Display page break
 (package! page-break-lines :recipe (:host github :repo "purcell/page-break-lines"))
+
+;; trying out org-roam-ui
+(unpin! org-roam)
+(package! org-roam-ui)

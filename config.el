@@ -113,7 +113,7 @@
         :n "M-j" #'org-metadown
         :n "M-k" #'org-metaup))
 
-(setq deft-directory "~/Documents/emacs-org/notes/"
+(setq deft-directory "~/Documents/emacs-org/"
       deft-extensions `("txt" "org")
       deft-recursive t)
 
@@ -132,9 +132,16 @@
     (map! :map org-mode-map
           "C-c g"  #'org-mac-grab-link)))
 
+(defun my/org-dir-search (dir)
+  "Search an org directory using consult-ripgrep. With live-preview."
+  (let ((consult-ripgrep-command "rg --null --smart-case --type org --line-buffered --color=always --max-columns=1000 --no-heading --line-number . -e ARG OPTS"))
+    (consult-ripgrep dir)))
+
+(map! "<f8>" #'(lambda () (interactive) (my/org-dir-search "~/Documents/emacs-org/")))
+
 (setq-default
- delete-by-moving-to-trash t                      ; Delete files to trash
- window-combination-resize t                      ; take new window space from all other windows (not just current)
+ delete-by-moving-to-trash t            ; Delete files to trash
+ window-combination-resize t ; take new window space from all other windows (not just current)
  x-stretch-cursor t)                              ; Stretch cursor to the glyph width
 
 (display-time-mode 1)                             ; Enable time in the mode-line
@@ -284,3 +291,19 @@
         :desc "Next page break" :nv "]" #'forward-page))
 
 (setq projectile-project-search-path '("~/Documents/emacs-org/" ("~/code" . 1)))
+
+;; org-roam-ui
+(use-package! websocket
+    :after org-roam)
+
+(use-package! org-roam-ui
+    :after org-roam ;; or :after org
+;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+;;         a hookable mode anymore, you're advised to pick something yourself
+;;         if you don't care about startup time, use
+;;  :hook (after-init . org-roam-ui-mode)
+    :config
+    (setq org-roam-ui-sync-theme t
+          org-roam-ui-follow t
+          org-roam-ui-update-on-save t
+          org-roam-ui-open-on-start t))
