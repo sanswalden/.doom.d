@@ -62,6 +62,8 @@
 ;; When using org-roam va the '+roam' flag
 ;; (unpin! org-roam company-org-roam)
 
+(package! olivetti)
+(package! exec-path-from-shell)
 (package! fountain-mode)
 ;;
 ;; color documentation info
@@ -73,3 +75,6 @@
 ;; trying out org-roam-ui
 (unpin! org-roam)
 (package! org-roam-ui)
+
+;; set up a thersaurus to go along with dictionary support via (lookup +dictionary +offline) in init.el
+(package! synosaurus)

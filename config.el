@@ -139,6 +139,10 @@
 
 (map! "<f8>" #'(lambda () (interactive) (my/org-dir-search "~/Documents/emacs-org/")))
 
+;; Show the modeline to allow visual selection to show word count when in zen mode
+(setq
+ writeroom-mode-line t)
+
 (setq-default
  delete-by-moving-to-trash t            ; Delete files to trash
  window-combination-resize t ; take new window space from all other windows (not just current)
