@@ -78,3 +78,6 @@
 
 ;; set up a thersaurus to go along with dictionary support via (lookup +dictionary +offline) in init.el
 (package! synosaurus)
+
+;; Highlists the current cursor line after major movements. Found via https://ruivieira.dev/doom-emacs.html
+(package! beacon)

@@ -311,3 +311,7 @@
           org-roam-ui-follow t
           org-roam-ui-update-on-save t
           org-roam-ui-open-on-start t))
+;
+;; global minor mode
+(use-package! beacon)
+(after! beacon (beacon-mode 1))
